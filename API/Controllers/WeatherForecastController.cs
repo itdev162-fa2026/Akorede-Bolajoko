@@ -15,12 +15,15 @@ namespace API.Controllers
 
         private readonly ILogger<WeatherForecastController> _logger;
 
-        private readonly DataContext _context;
+        private readonly Persistence.DataContext _context;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+         // ✅ Inject both logger and DataContext
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, DataContext context)
         {
             _logger = logger;
+            _context = context;
         }
+
 
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
@@ -37,17 +40,17 @@ namespace API.Controllers
         [HttpPost]
         public ActionResult<WeatherForecast> Create()
         {
-            Consolle.WriteLine($"Database path: {_context.DbPath}");
+            Console.WriteLine($"Database path: {_context.DbPath}");
             Console.WriteLine("Insert a new WeatherForecast");
 
-            var forecast = new WeatherForecastController()
+            var forecast = new WeatherForecast()
             {
-                Date = new DateOnly(),
+                Date = DateTime.Now,
                 TemperatureC = 75,
                 Summary = "Warm"
             };
 
-            _context.WeatherForecasts.Add(forecast);
+            _context.WeatherForecast.Add(forecast);
             var success = _context.SaveChanges() > 0;
 
             if (success)

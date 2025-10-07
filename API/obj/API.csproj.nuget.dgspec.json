@@ -30,6 +30,9 @@
             "projectReferences": {
               "C:\\Web-dev\\Akorede-Bolajoko\\Application\\Application.csproj": {
                 "projectPath": "C:\\Web-dev\\Akorede-Bolajoko\\Application\\Application.csproj"
+              },
+              "C:\\Web-dev\\Akorede-Bolajoko\\Persistence\\Persistence.csproj": {
+                "projectPath": "C:\\Web-dev\\Akorede-Bolajoko\\Persistence\\Persistence.csproj"
               }
             }
           }
