@@ -1,5 +1,6 @@
 using Domain;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Persistence;
 
 namespace API.Controllers
@@ -37,12 +38,12 @@ namespace API.Controllers
         [HttpPost]
         public ActionResult<WeatherForecast> Create()
         {
-            Consolle.WriteLine($"Database path: {_context.DbPath}");
+            Console.WriteLine($"Database path: {_context.DbPath}");
             Console.WriteLine("Insert a new WeatherForecast");
 
-            var forecast = new WeatherForecastController()
+            var forecast = new WeatherForecast
             {
-                Date = new DateOnly(),
+                Date = DateTime.Now.Date,
                 TemperatureC = 75,
                 Summary = "Warm"
             };
