@@ -1,7 +1,7 @@
 using Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace Persisitence
+namespace Persistence
 {
     public class DataContext : DbContext
     {
@@ -20,6 +20,8 @@ namespace Persisitence
         {
             options.UseSqlite($"Data Source={DbPath}");
         }
+
+        public DbSet<Product> Products { get; set; }
 
     }
 }
