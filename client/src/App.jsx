@@ -5,6 +5,9 @@ import ProductDetail from "./components/ProductDetail";
 import "./App.css";
 import CartButton from "./components/Cart/CartButton";
 import Cart from "./components/Cart/Cart";
+import Checkout from "./components/Checkout/Checkout";
+import OrderSuccess from "./components/Checkout/OrderSuccess";
+
 
 function App() {
 
@@ -111,13 +114,25 @@ function App() {
       </header>
 
       <main className="app-main">
-        <Routes>
-          <Route path="/" element={<ProductList />} />
-          <Route
-            path="/products/:id"
-            element={<ProductDetail addToCart={addToCart} />}
-          />
-        </Routes>
+       <Routes>
+  <Route path="/" element={<ProductList />} />
+  <Route
+    path="/products/:id"
+    element={<ProductDetail addToCart={addToCart} />}
+  />
+  <Route
+    path="/checkout"
+    element={
+      <Checkout
+        cartItems={cartItems}
+        cartTotal={getCartTotal()}
+        clearCart={clearCart}
+      />
+    }
+  />
+  <Route path="/order/success" element={<OrderSuccess />} />
+</Routes>
+
       </main>
 
       <footer className="app-footer">
