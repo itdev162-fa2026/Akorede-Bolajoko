@@ -46,8 +46,9 @@ function Cart({ items, total, onUpdateQuantity, onRemove, onClear, onClose }) {
   </button>
 
   <Link to="/checkout" className="checkout-button-link">
-    <button className="checkout-button">Proceed to Checkout</button>
-  </Link>
+  <button className="checkout-button">Proceed to Checkout</button>
+</Link>;
+
 </div>
 
             </>
