@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Development settings with secrets
+appsettings.Development.json
+
+# SQLite database files
+*.db
+*.db-shm
+*.db-wal
